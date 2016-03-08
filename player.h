@@ -13,9 +13,14 @@ public:
     ~Player();
     
     Move *doMove(Move *opponentsMove, int msLeft);
+	int getScore(Board board);
+	bool isCorner(Move *move);
+	bool isEdge(Move *move);
 
     // Flag to tell if the player is running within the test_minimax context
     bool testingMinimax;
+	Board board;
+	Side ourSide;
 };
 
 #endif
