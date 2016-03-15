@@ -1,5 +1,6 @@
 #include "board.h"
 #include <vector>
+#include <iostream>
 using namespace std;
 
 /*
@@ -104,17 +105,25 @@ bool Board::checkMove(Move *m, Side side) {
 }
 
 vector<Move *> Board::getPossibleMoves(Side side) {
+        //cerr << "In possible Moves " << endl;
 	vector<Move *> possibleMoves;
 
 	if (hasMoves(side)) {
 		for (int i = 0; i < 8; i++) {
 		    for (int j = 0; j < 8; j++) {
+        			// cerr << "creating possible Moves " << endl;
 		        Move *move = new Move (i, j);
-		        if (checkMove(move, side))
+        			// cerr << "checking possible Moves " << endl;
+		        if (checkMove(move, side)) {
 					possibleMoves.push_back(move);
+        			// cerr << "pushing possible Moves " << endl;
+				} else {
+					delete move;
+				}
 		    }
 		}
 	}
+        // cerr << "End possible Moves " << endl;
     return possibleMoves;
 }
 
