@@ -18,9 +18,13 @@ pitiful thing I submitted last week was), I did the following things:
    sure that by looking ahead a few moves (in this case, 4 moves), my AI would
    do better.
 3. Being an absolute noob at alpha-beta pruning. Because we are trying to find
-   a move that maximizes our score and minimizes the opponent's score (such that
-   our score ends up being greater than that of our opponent's), finding such
-   a move would make the AI more intelligent.
+   the first move that maximizes our score and minimizes the opponent's score 
+   (such that our score ends up being greater than that of our opponent's), we
+   stop traversal when we think that any move we find after the "best" move is
+   not going to be any better.
 4. Attempting to optimize the amount of time needed to look up the score by
-   putting it into a hashmap. Because hashmaps give the value of a given key
-   in constant time, this was a good way to look up the score quickly.
+   putting it into a hashmap. While this may not be the ideal solution due
+   to the number of warnings I get for doing the long long type, 
+   because hashmaps give the value of a given key in constant time, this 
+   was a good way to look up the score quickly without recalculating it--so
+   this entire process is a bit like memoization.
